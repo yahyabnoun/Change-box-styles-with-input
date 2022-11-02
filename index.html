@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+body{
+  background-color: #0d1117;
+  font-family: 'Poppins'; 
+  height:80vh ;
+  position: relative;
+  color: white;
+ }
+ #box_test{
+    transition: all 0.5s ease;
+    background-color:brown; 
+    padding: 10px;
+    text-align: center;
+    color: wheat;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+ }
+ table {
+  border-collapse: collapse;
+  margin: 30px 10px;
+}
+td{
+    border: 1px solid wheat;
+}
+    </style>
+</head>
+<body >
+    <div   id="box_test">
+
+        <p style="margin: auto 0px;">  i'm box        </p>
+       
+</div>
+    <table >
+          <tr>
+            <td>couleur de fond</td>
+            <td>Maria Anders</td>
+          </tr>
+          <tr>
+            <td>padding</td>
+            <td>
+                    <input data-input="padding"  type="range" min="0" max="100" value="0" oninput="rangeValue1.innerText = this.value">
+                    <span id="rangeValue1">0</span>
+                    
+          </tr>
+          <tr>
+            <td>height</td>
+            <td>
+                <input data-input="height" type="range" min="0" max="300" value="100" oninput="rangeValue2.innerText = this.value">
+                <span id="rangeValue2">100</span>
+                
+      </tr>
+          </tr>
+          <tr>
+            <td>width</td>
+            <td>
+                <input data-input="width" type="range" min="0" max="600" value="100" oninput="rangeValue3.innerText = this.value">
+                <span id="rangeValue3">100</span>
+                
+      </tr>
+          </tr>
+          <tr>
+            <td>arrondi</td>
+            <td>
+                <input data-input="border-radius" type="range" min="0" max="100" value="0" oninput="rangeValue4.innerText = this.value">
+                <span id="rangeValue4">0</span>
+                
+      </tr>
+          </tr>
+          <tr>
+            <td>rotation</td>
+            <td>
+                <input data-input="rotate" type="range" min="0" max="360" value="0" oninput="rangeValue5.innerText = this.value">
+                <span id="rangeValue5">0</span>
+                
+      </tr>
+          </tr>
+      </table>
+
+ 
+
+      <script>
+
+            let inputs=document.querySelectorAll('input')
+            let box_test=document.getElementById('box_test')
+            document.addEventListener('input', (it) => {
+                let value_inputs=it.target.value
+                let data_inputs=it.target.dataset.input
+                switch (data_inputs) {
+                    case 'padding':
+                    case 'height':
+                    case 'width':
+                    case 'border-radius':
+                    box_test.style[data_inputs]=`${value_inputs}px`
+                        break;
+                    case 'rotate':
+                    box_test.style.transform = `rotate(${value_inputs}deg)`
+                        break;
+                    default:
+                        break;
+                }
+            });
+
+      </script>
+</body>
+</html>
